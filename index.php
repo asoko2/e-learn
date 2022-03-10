@@ -1,3 +1,12 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION['name'])) {
+    header('location: sign-in.php');
+}
+?>
+
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
 
@@ -43,14 +52,10 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-lg-7 order-lg-1">
-                                                    <h3 class=" mb-3">Welcome back, <span class="fw-bold">Molly</span>
+                                                    <h3 class=" mb-3">Welcome back, <span class="fw-bold">
+                                                            <?php echo $_SESSION['name']; ?>
+                                                        </span>
                                                     </h3>
-                                                    <p class="line-height-custom mb-0">Your Study Completed <span
-                                                            class="secondary-color">72%</span> of the tasks.</p>
-                                                    <p class="line-height-custom">Progress is <span
-                                                            class="secondary-color">Very good!</span></p>
-                                                    <a class="btn bg-secondary text-light btn-lg lift"
-                                                        href="http://pixelwibes.com/" target="_blank">Free Inquire</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -65,7 +70,7 @@
                                     <div id="apex-basic-column"></div>
                                 </div>
                             </div>
-                            <div class="mb-3">
+                            <!-- <div class="mb-3">
                                 <div class="card-header py-3 px-0 no-bg border-0 bg-transparent">
                                     <h6 class="mb-0 fw-bold ">Other Courses </h6>
                                     <span class="text-muted">some other courses to join now </span>
@@ -461,7 +466,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="col-lg-4 col-md-12">
                             <div class="card mb-3 color-bg-200">
@@ -613,27 +618,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card bg-dark mb-3">
-                                <div class="card-body">
-                                    <div class="card-header py-3">
-                                        <h6 class="mb-0 fw-bold text-white">Are you ready next lessons </h6>
-                                    </div>
-                                    <div
-                                        class="digital-clock d-flex justify-content-center align-items-center min-height-220">
-                                        <figure>
-                                            <div class="face top">
-                                                <p id="s"></p>
-                                            </div>
-                                            <div class="face front">
-                                                <p id="m"></p>
-                                            </div>
-                                            <div class="face left">
-                                                <p id="h"></p>
-                                            </div>
-                                        </figure>
                                     </div>
                                 </div>
                             </div>

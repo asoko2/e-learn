@@ -7,9 +7,10 @@
 
                 <div class="dropdown user-profile ml-2 ml-sm-3 d-flex align-items-center zindex-popover">
                     <div class="u-info me-2">
-                        <p class="mb-0 text-end line-height-sm "><span class="font-weight-bold">Molly
-                                Cornish</span></p>
-                        <small>Student Profile</small>
+                        <p class="mb-0 text-end line-height-sm "><span class="font-weight-bold">
+                                <?php echo $_SESSION['name'] ?>
+                            </span></p>
+                        <!-- <small>Student Profile</small> -->
                     </div>
                     <a class="nav-link dropdown-toggle pulse p-0" href="#" role="button" data-bs-toggle="dropdown"
                         data-bs-display="static">
@@ -36,8 +37,7 @@
                                         class="icofont-graduate-alt fs-6 me-3"></i>Student Profile</a>
                                 <a href="video-class.html" class="list-group-item list-group-item-action border-0 "><i
                                         class="icofont-black-board fs-6 me-3"></i>Video Class</a>
-                                <a href="dist/ui-elements/auth-signin.html"
-                                    class="list-group-item list-group-item-action border-0 "><i
+                                <a href="sign-out.php" class="list-group-item list-group-item-action border-0 "><i
                                         class="icofont-logout fs-6 me-3"></i>Signout</a>
                                 <div>
                                     <hr class="dropdown-divider border-dark">

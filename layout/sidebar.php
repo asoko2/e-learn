@@ -36,12 +36,12 @@
                     <li><a class="ms-link" href="purchase.html"><span>Course Purchase</span></a></li>
                 </ul>
             </li>
-            <li><a class="m-link" href="chat.html"><i class="icofont-ui-text-chat"></i> <span>Massages</span></a></li>
+            <!-- <li><a class="m-link" href="chat.html"><i class="icofont-ui-text-chat"></i> <span>Massages</span></a></li>
             <li><a class="m-link" href="reviews.html"><i class="icofont-match-review"></i> <span>Reviews</span></a></li>
             <li><a class="m-link" href="file-storage/index.html"><i class="icofont-cloud-upload"></i> <span>File
-                        Cloud</span></a></li>
-            <li><a class="m-link" href="ui-elements/ui-alerts.html"><i class="icofont-paint"></i> <span>UI
-                        Components</span></a></li>
+                        Cloud</span></a></li> -->
+            <!-- <li><a class="m-link" href="ui-elements/ui-alerts.html"><i class="icofont-paint"></i> <span>UI
+                        Components</span></a></li> -->
         </ul>
         <!-- Theme: Switch Theme -->
         <ul class="list-unstyled mb-0">
@@ -49,12 +49,6 @@
                 <div class="form-check form-switch theme-switch">
                     <input class="form-check-input" type="checkbox" id="theme-switch">
                     <label class="form-check-label" for="theme-switch">Enable Dark Mode!</label>
-                </div>
-            </li>
-            <li class="d-flex align-items-center justify-content-center">
-                <div class="form-check form-switch theme-rtl">
-                    <input class="form-check-input" type="checkbox" id="theme-rtl">
-                    <label class="form-check-label" for="theme-rtl">Enable RTL Mode!</label>
                 </div>
             </li>
         </ul>
