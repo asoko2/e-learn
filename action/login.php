@@ -16,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //check if result = 1
     if (mysqli_num_rows($result) == 1) {
         //verify password
+        // var_dump('error');
         if (password_verify($password, $row['password'])) {
             // session_register('username');
             $_SESSION['login_user'] = $login;
@@ -31,6 +32,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['name'] = $row['teacher_name'];
             } else {
                 $result = mysqli_query($conn, "SELECT * FROM student where user_id = " . $row['id']);
+                $survey = mysqli_query($conn, "SELECT * FROM survey_result where user_id = " . $row['id']);
+                // var_dump($result);
+                if ($survey) {
+                    $_SESSION['survey_taken'] = true;
+                } else {
+                    $_SESSION['survey_taken'] = false;
+                }
                 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
                 $_SESSION['name'] = $row['student_name'];
             }
@@ -40,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("location: ../sign-in.php");
         }
     } else {
-        $_SESSION['error_sign_in'] = "Username atau Password salah";
+        $_SESSION['error_sign_in'] = "Username";
         header("location: ../sign-in.php");
     }
 }
