@@ -23,7 +23,7 @@ if (isset($_SESSION['name'])) {
 
 <body>
     <main class="form-signin">
-        <form method="POST" action="action/login.php">
+        <form method="POST" action="action/register.php">
             <h1 class="h3 mb-3 fw-normal text-center">Register</h1>
             <?php if (isset($_SESSION['error_message'])) { ?>
             <div class="alert alert-danger" role="alert">
@@ -31,28 +31,64 @@ if (isset($_SESSION['name'])) {
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             <?php } ?>
-            <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" name="login" placeholder="name@example.com">
-                <label for="floatingInput">Login</label>
-            </div>
-            <div class="form-floating">
-                <input type="text" class="form-control" id="name" name="name" placeholder="Nama">
-                <label for="floatingInput">Nama</label>
-            </div>
-            <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" name="login" placeholder="name@example.com">
-                <label for="floatingInput">Login</label>
-            </div>
-            <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" name="login" placeholder="name@example.com">
-                <label for="floatingInput">Login</label>
-            </div>
-            <div class="form-floating">
-                <input type="password" class="form-control" name="password" id="floatingPassword"
-                    placeholder="Password">
-                <label for="floatingPassword">Password</label>
-            </div>
+            <!-- <input type="text" class="form-control" id="floatingInput" name="login" placeholder="name@example.com"> -->
+            <select class="form-select form-select-lg" id="level" name="level" aria-label="Default select example">
+                <option selected>--Pilih Jenis User--</option>
+                <option value="2">Guru</option>
+                <option value="3">Murid</option>
+            </select>
+            <div id="registerForm" hidden class="my-2">
 
+                <div id="nipForm">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="tipeguru" id="tipeguru1" value="1" required>
+                        <label class="form-check-label" for="tipeguru1">PNS</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="tipeguru" id="tipeguru2" value="2">
+                        <label class="form-check-label" for="tipeguru2">Honorer</label>
+                    </div>
+                    <div id="selectedGuru" hidden>
+                        <div class="form-floating" id="nipGroup">
+                            <input type="text" class="form-control" id="nip" name="nip" placeholder="NIP">
+                            <label for="nip">NIP</label>
+                        </div>
+                        <div class="form-floating" id="emailGroup">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-floating" id="nisForm">
+                    <input type="text" class="form-control" id="nis" name="nis" placeholder="NIS">
+                    <label for="floatingInput">NIS</label>
+                </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Nama" required>
+                    <label for="floatingInput">Nama</label>
+                </div>
+                <div class="form-floating">
+                    <textarea type="text" class="form-control" id="floatingInput" name="address"
+                        placeholder="name@example.com" required></textarea>
+                    <label for="address">Alamat</label>
+                </div>
+                <select class="form-select form-select-lg" id="clas_id" name="class_id"
+                    aria-label="Default select example" required>
+                    <option selected>--Pilih Kelas--</option>
+                    <option value="1">A</option>
+                    <option value="2">B</option>
+                    <option value="3">C</option>
+                    <option value="4">D</option>
+                    <option value="5">E</option>
+                </select>
+                <div class="form-floating">
+                    <input type="password" class="form-control" name="password" id="floatingPassword"
+                        placeholder="Password" required>
+                    <label for="floatingPassword">Password</label>
+                </div>
+
+            </div>
             <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
             <hr />
             <a href="sign-in.php" class="btn btn-lg btn-dark w-100" style="text-decoration: none;">Sign In</a>
@@ -62,5 +98,32 @@ if (isset($_SESSION['name'])) {
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
     </script>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    // alert('ready');
+    $('#level').on('change', function() {
+        $('#registerForm').removeAttr('hidden').slideDown();
+        if ($(this).val() == 2) {
+            $('#nipForm').show();
+            $('#nisForm').hide();
+        } else if ($(this).val() == 3) {
+            $('#nisForm').show();
+            $('#nipForm').hide();
+        }
+    })
+    $('input[type=radio][name=tipeguru]').change(function() {
+        $('#selectedGuru').removeAttr('hidden');
+        if ($(this).val() == 1) {
+            $('#nipGroup').show();
+            $('#emailGroup').hide();
+        } else {
+            $('#nipGroup').hide();
+            $('#emailGroup').show();
+
+        }
+    })
+})
+</script>
 
 </html>
