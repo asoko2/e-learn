@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 11, 2022 at 04:45 AM
+-- Generation Time: Mar 11, 2022 at 06:56 AM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.6
 
@@ -27,6 +27,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin`
 --
 
+DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin` (
   `id` int(10) NOT NULL,
   `admin_name` varchar(50) NOT NULL,
@@ -47,6 +48,7 @@ INSERT INTO `admin` (`id`, `admin_name`, `email`, `user_id`) VALUES
 -- Table structure for table `class`
 --
 
+DROP TABLE IF EXISTS `class`;
 CREATE TABLE `class` (
   `id` int(10) NOT NULL,
   `class_name` varchar(10) NOT NULL
@@ -58,6 +60,7 @@ CREATE TABLE `class` (
 -- Table structure for table `student`
 --
 
+DROP TABLE IF EXISTS `student`;
 CREATE TABLE `student` (
   `id` int(10) NOT NULL,
   `user_id` int(10) NOT NULL,
@@ -81,6 +84,7 @@ INSERT INTO `student` (`id`, `user_id`, `nis`, `student_name`, `student_address`
 -- Table structure for table `survey_question`
 --
 
+DROP TABLE IF EXISTS `survey_question`;
 CREATE TABLE `survey_question` (
   `id` int(10) NOT NULL,
   `question` varchar(255) NOT NULL,
@@ -109,6 +113,7 @@ INSERT INTO `survey_question` (`id`, `question`, `category`) VALUES
 -- Table structure for table `survey_result`
 --
 
+DROP TABLE IF EXISTS `survey_result`;
 CREATE TABLE `survey_result` (
   `id` int(10) NOT NULL,
   `level_result` int(2) NOT NULL,
@@ -121,6 +126,7 @@ CREATE TABLE `survey_result` (
 -- Table structure for table `teachers`
 --
 
+DROP TABLE IF EXISTS `teachers`;
 CREATE TABLE `teachers` (
   `id` int(10) NOT NULL,
   `user_id` int(10) NOT NULL,
@@ -146,6 +152,7 @@ INSERT INTO `teachers` (`id`, `user_id`, `teacher_name`, `teacher_address`, `nip
 -- Table structure for table `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(10) NOT NULL,
   `login` varchar(50) NOT NULL,
