@@ -16,8 +16,13 @@
             </li>
             <li><a class="m-link" href="classes.html"><i class="icofont-read-book-alt"></i> <span>Classes</span></a>
             </li>
+            <?php if ($_SESSION['level_user'] == 1 || $_SESSION['level_user'] == 2) { ?>
+
             <li><a class="m-link" href="students.html"><i class="icofont-group-students"></i> <span>Students</span></a>
+                <?php } ?>
             </li>
+
+            <?php if ($_SESSION['level_user'] == 1) { ?>
             <li class="collapsed"><a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Teachers"
                     href="#"><i class="icofont-teacher"></i><span>Teachers</span><span
                         class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
@@ -26,15 +31,14 @@
                     <li><a class="ms-link" href="teachers-info.html"><span>Teachers Profile</span></a></li>
                 </ul>
             </li>
-            <li><a class="m-link" href="video-class.html"><i class="icofont-black-board"></i> <span>Video
-                        Classes</span></a></li>
+            <?php } ?>
             <li class="collapsed"><a class="m-link" data-bs-toggle="collapse" data-bs-target="#corses-Components"
-                    href="#"><i class="icofont-certificate"></i> <span>Courses</span><span
+                    href="#"><i class="icofont-certificate"></i> <span>Materi</span><span
                         class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
-                <ul class="sub-menu collapse" id="corses-Components">
+                <!-- <ul class="sub-menu collapse" id="corses-Components">
                     <li><a class="ms-link" href="courses.html"><span>Courses</span></a></li>
                     <li><a class="ms-link" href="purchase.html"><span>Course Purchase</span></a></li>
-                </ul>
+                </ul> -->
             </li>
             <!-- <li><a class="m-link" href="chat.html"><i class="icofont-ui-text-chat"></i> <span>Massages</span></a></li>
             <li><a class="m-link" href="reviews.html"><i class="icofont-match-review"></i> <span>Reviews</span></a></li>
@@ -44,14 +48,14 @@
                         Components</span></a></li> -->
         </ul>
         <!-- Theme: Switch Theme -->
-        <ul class="list-unstyled mb-0">
+        <!-- <ul class="list-unstyled mb-0">
             <li class="d-flex align-items-center justify-content-center">
                 <div class="form-check form-switch theme-switch">
                     <input class="form-check-input" type="checkbox" id="theme-switch">
                     <label class="form-check-label" for="theme-switch">Enable Dark Mode!</label>
                 </div>
             </li>
-        </ul>
+        </ul> -->
         <!-- Menu: menu collepce btn -->
         <button type="button" class="btn btn-link sidebar-mini-btn text-light">
             <span class="ms-2"><i class="icofont-bubble-right"></i></span>

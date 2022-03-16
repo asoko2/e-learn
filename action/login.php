@@ -11,7 +11,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "SELECT * FROM users where login = '$login'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-    // var_dump($row['password']);
 
     //check if result = 1
     if (mysqli_num_rows($result) == 1) {
@@ -20,27 +19,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $row['password'])) {
             // session_register('username');
             $_SESSION['login_user'] = $login;
-
+            $_SESSION['level_user'] = $row['level_user'];
             //get user detail
             if ($row['level_user'] == 1) {
                 $result = mysqli_query($conn, "SELECT * FROM admin where user_id = " . $row['id']);
                 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
                 $_SESSION['name'] = $row['admin_name'];
+                $_SESSION['login'] = $row['email'];
             } elseif ($row['level_user'] == 2) {
                 $result = mysqli_query($conn, "SELECT * FROM teachers where user_id = " . $row['id']);
                 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
                 $_SESSION['name'] = $row['teacher_name'];
+                if ($row['teacher_type'] == 1) {
+                    $_SESSION['login'] = $row['nip'];
+                } else {
+                    $_SESSION['login'] = $row['email'];
+                }
             } else {
                 $result = mysqli_query($conn, "SELECT * FROM student where user_id = " . $row['id']);
-                $survey = mysqli_query($conn, "SELECT * FROM survey_result where user_id = " . $row['id']);
-                // var_dump($result);
-                if ($survey) {
-                    $_SESSION['survey_taken'] = true;
-                } else {
-                    $_SESSION['survey_taken'] = false;
-                }
                 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
                 $_SESSION['name'] = $row['student_name'];
+                $_SESSION['student_id'] = $row['id'];
+                $_SESSION['login'] = $row['nis'];
             }
             header("location: ../index.php");
         } else {

@@ -41,7 +41,7 @@ if (isset($_SESSION['name'])) {
 
                 <div id="nipForm">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="tipeguru" id="tipeguru1" value="1" required>
+                        <input class="form-check-input" type="radio" name="tipeguru" id="tipeguru1" value="1">
                         <label class="form-check-label" for="tipeguru1">PNS</label>
                     </div>
                     <div class="form-check form-check-inline">
@@ -73,6 +73,11 @@ if (isset($_SESSION['name'])) {
                         placeholder="name@example.com" required></textarea>
                     <label for="address">Alamat</label>
                 </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="phone_number" name="phone_number"
+                        placeholder="0812345678" required>
+                    <label for="floatingInput">Phone Number</label>
+                </div>
                 <select class="form-select form-select-lg" id="clas_id" name="class_id"
                     aria-label="Default select example" required>
                     <option selected>--Pilih Kelas--</option>
@@ -98,7 +103,7 @@ if (isset($_SESSION['name'])) {
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
     </script>
 </body>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="assets/js/jquery.js"></script>
 <script>
 $(document).ready(function() {
     // alert('ready');

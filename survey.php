@@ -46,25 +46,47 @@ include('config/db.php');
                                 <div class="col-12 col-xl-12 col-lg-12">
                                     <div class="card mb-3 color-bg-200">
                                         <div class="card-body">
-                                            <div class="row align-items-center">
-                                                <?php
-                                                $question = mysqli_query($conn, "SELECT * FROM survey_question");
-                                                $row = mysqli_fetch_all($question, MYSQLI_ASSOC);
+                                            <form action="action/save-survey.php" method="POST">
+                                                <div class="row align-items-center">
+                                                    <?php
+                                                    $question = mysqli_query($conn, "SELECT * FROM survey_question");
+                                                    $row = mysqli_fetch_all($question, MYSQLI_ASSOC);
+                                                    foreach ($row as $q) { ?>
 
-                                                foreach ($row as $q) { ?>
-
-                                                <div class="row my-1">
-                                                    <div class="col">
-                                                        <?php echo $q->id; ?>
+                                                    <div class="row my-1">
+                                                        <div class="col text-center">
+                                                            <strong><?php echo $q['id']; ?>.</strong>
+                                                        </div>
+                                                        <div class="col-11">
+                                                            <strong><?php echo $q['question'] ?></strong>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-11">TESTS</div>
+                                                    <div class="row my-1">
+                                                        <div class="col-11 offset-1">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio"
+                                                                    name="question<?php echo $q['id'] ?>" value="1"
+                                                                    required>
+                                                                <label class="form-check-label"
+                                                                    for="tipeguru1">Ya</label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio"
+                                                                    name="question<?php echo $q['id'] ?>" value="0">
+                                                                <label class="form-check-label"
+                                                                    for="tipeguru2">Tidak</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <?php } ?>
+                                                    <div class="row my-1">
+                                                        <div class="col-11 offset-1">
+                                                            <button type="submit"
+                                                                class="btn btn-primary btn-lg"><b>SIMPAN</b></button>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="row my-1">
-                                                    <div class="col-11 offset-1">TES</div>
-                                                </div>
-                                                <?php } ?>
-                                                ?>
-                                            </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>

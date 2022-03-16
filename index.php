@@ -1,10 +1,23 @@
 <?php
 
+include('config/db.php');
 session_start();
 
 if (!isset($_SESSION['name'])) {
     header('location: sign-in.php');
 }
+$survey = mysqli_query($conn, "SELECT * FROM survey_result where student_id = '{$_SESSION['student_id']}'");
+$survey_row = mysqli_num_rows($survey);
+if ($survey_row == 1) {
+    $_SESSION['survey_taken'] = true;
+    $level = mysqli_fetch_array($survey, MYSQLI_ASSOC);
+    $_SESSION['level'] = $level['level_result'];
+    $_SESSION['levels'] = $survey;
+} else {
+    $_SESSION['survey_taken'] = false;
+}
+
+
 ?>
 
 <!doctype html>
@@ -62,6 +75,9 @@ if (!isset($_SESSION['name'])) {
                                     </div>
                                 </div>
                             </div>
+                            <?php if ($_SESSION['level_user'] == 3) { ?>
+
+
                             <div class="card mb-3 color-bg-200">
                                 <div class="card-header py-3">
                                     <h6 class="mb-0 fw-bold ">Hasil Survey</h6>
@@ -69,7 +85,8 @@ if (!isset($_SESSION['name'])) {
                                 <div class="card-body">
                                     <?php if ($_SESSION['survey_taken']) { ?>
                                     <h6 class="mb-0 fw-bold">
-
+                                        Level materi anda adalah Level
+                                        <strong><?php echo $_SESSION['level'] ?></strong>
                                     </h6>
                                     <?php  } else { ?>
                                     <h6 class="mb-2 fw-bold">Anda belum mengambil Survey Level Belajar</h6>
@@ -78,6 +95,7 @@ if (!isset($_SESSION['name'])) {
                                     <?php } ?>
                                 </div>
                             </div>
+                            <?php } ?>
                         </div>
                     </div><!-- Row End -->
                 </div>
