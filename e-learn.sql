@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 18, 2022 at 10:17 AM
+-- Generation Time: Mar 24, 2022 at 07:46 AM
 -- Server version: 5.7.24
--- PHP Version: 7.4.22
+-- PHP Version: 8.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -53,6 +53,37 @@ CREATE TABLE `class` (
   `id` int(10) NOT NULL,
   `class_name` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `class`
+--
+
+INSERT INTO `class` (`id`, `class_name`) VALUES
+(1, 'A'),
+(2, 'B'),
+(3, 'C'),
+(4, 'D'),
+(5, 'E');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `class_attendance`
+--
+
+DROP TABLE IF EXISTS `class_attendance`;
+CREATE TABLE `class_attendance` (
+  `id` int(10) NOT NULL,
+  `class_id` int(10) NOT NULL,
+  `teacher_id` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `class_attendance`
+--
+
+INSERT INTO `class_attendance` (`id`, `class_id`, `teacher_id`) VALUES
+(2, 1, 52);
 
 -- --------------------------------------------------------
 
@@ -105,7 +136,7 @@ INSERT INTO `survey_question` (`id`, `question`, `category`) VALUES
 (3, 'Saya sering hadir pada saat pelajaran biologi', '1'),
 (4, 'Apabila mengalami kesulitan dalam memahami materi, saya bertanya.', '1'),
 (5, 'Tugas yang diberikan guru membuat saya semakin tertatik dengan biologi.', '1'),
-(6, 'Ketika di rumah saya memilih bermain daripada belajar biologi.', '2'),
+(6, 'Ketika di rumah saya memilih belajar daripada bermain biologi.', '2'),
 (7, 'Tanpa ada yang menyuruh, saya belajar biologi sendiri di rumah. ', '2'),
 (8, 'Saya tidak merasa kesulitan dalam memahami materi-materi biologi', '2'),
 (9, 'Saat ulangan saya sering mendapat nilai > 75', '2'),
@@ -148,19 +179,19 @@ CREATE TABLE `teachers` (
   `nip` varchar(20) DEFAULT NULL,
   `phone_number` varchar(15) NOT NULL,
   `email` varchar(50) DEFAULT NULL,
-  `teacher_type` enum('1','2') NOT NULL,
-  `class_id` int(10) NOT NULL
+  `teacher_type` enum('1','2') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `teachers`
 --
 
-INSERT INTO `teachers` (`id`, `user_id`, `teacher_name`, `teacher_address`, `nip`, `phone_number`, `email`, `teacher_type`, `class_id`) VALUES
-(1, 2, 'Teacher 1', 'Home 1', '199292921992021020', '081234567890', 'teacher1@gmail.com', '1', 1),
-(2, 18, 'Guru 1', 'Alamat Guru 1', '12345678901', '0812309814908', '', '1', 3),
-(6, 44, 'Guru 4', 'Alamat Guru 4', '123412341234', '081234567890', NULL, '1', 3),
-(7, 49, 'Guru Honorer', 'Alamat Guru Honorer', NULL, '081234567890', 'honorer@gmail.com', '2', 3);
+INSERT INTO `teachers` (`id`, `user_id`, `teacher_name`, `teacher_address`, `nip`, `phone_number`, `email`, `teacher_type`) VALUES
+(1, 2, 'Teacher 1', 'Home 1', '199292921992021020', '081234567890', 'teacher1@gmail.com', '1'),
+(2, 18, 'Guru 1', 'Alamat Guru 1', '12345678901', '0812309814908', '', '1'),
+(6, 44, 'Guru 4', 'Alamat Guru 4', '123412341234', '081234567890', NULL, '1'),
+(7, 49, 'Guru Honorer', 'Alamat Guru Honorer', NULL, '081234567890', 'honorer@gmail.com', '2'),
+(52, 82, 'Guru 5', 'Alamat Guru 5', '54321', '081234123401', NULL, '1');
 
 -- --------------------------------------------------------
 
@@ -190,7 +221,8 @@ INSERT INTO `users` (`id`, `login`, `password`, `level_user`) VALUES
 (27, '12344321', '$2y$10$s1eEzjfQhNULeQnHgb5FW.G6pvpw/NM4S19.Gc3s.S/Wuvpsp4hZm', '3'),
 (31, '1234512345', '$2y$10$JH.tJPs0RBZ93YwhvshV8ugCwht2wXvJ4daX6Hl.98chsBr2u9NW6', '3'),
 (32, '123456', '$2y$10$X4FLvQKcNy5sTlaGg9s8SOEiP/OHBCRLnRMYGo0k6QJupqNLWgrc2', '3'),
-(33, '1234543', '$2y$10$HDU0O7Re3bjO8CZ1LFYKZeuRm4SPdWVJCrp51o7nS8hIwALOQYfNW', '3');
+(33, '1234543', '$2y$10$HDU0O7Re3bjO8CZ1LFYKZeuRm4SPdWVJCrp51o7nS8hIwALOQYfNW', '3'),
+(82, '54321', '$2y$10$gua1P2NmtYwYfvm16jCDGO/sTFx3OxVZiAAvB5NAFBXGJ791mLKtG', '2');
 
 --
 -- Indexes for dumped tables
@@ -206,6 +238,12 @@ ALTER TABLE `admin`
 -- Indexes for table `class`
 --
 ALTER TABLE `class`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `class_attendance`
+--
+ALTER TABLE `class_attendance`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -252,7 +290,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `class`
 --
 ALTER TABLE `class`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `class_attendance`
+--
+ALTER TABLE `class_attendance`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `student`
@@ -276,13 +320,13 @@ ALTER TABLE `survey_result`
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
