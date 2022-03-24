@@ -78,7 +78,7 @@ if (isset($_SESSION['name'])) {
                         placeholder="0812345678" required>
                     <label for="floatingInput">Phone Number</label>
                 </div>
-                <select class="form-select form-select-lg" id="clas_id" name="class_id"
+                <!-- <select class="form-select form-select-lg" id="clas_id" name="class_id"
                     aria-label="Default select example" required>
                     <option selected>--Pilih Kelas--</option>
                     <option value="1">A</option>
@@ -86,7 +86,30 @@ if (isset($_SESSION['name'])) {
                     <option value="3">C</option>
                     <option value="4">D</option>
                     <option value="5">E</option>
-                </select>
+                </select> -->
+                <div class="form-control checkKelas">
+                    <label>Pilih Kelas</label><br />
+                    <div class="form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="kelas1" name="kelas1" value="1" required>
+                        <label class="form-check-label" for="kelas1">A</label>
+                    </div>
+                    <div class="form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="kelas2" name="kelas2" value="2" required>
+                        <label class="form-check-label" for="kelas1">B</label>
+                    </div>
+                    <div class="form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="kelas3" name="kelas3" value="3" required>
+                        <label class="form-check-label" for="kelas1">C</label>
+                    </div>
+                    <div class="form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="kelas4" name="kelas4" value="4" required>
+                        <label class="form-check-label" for="kelas1">D</label>
+                    </div>
+                    <div class="form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="kelas5" name="kelas5" value="5" required>
+                        <label class="form-check-label" for="kelas1">E</label>
+                    </div>
+                </div>
                 <div class="form-floating">
                     <input type="password" class="form-control" name="password" id="floatingPassword"
                         placeholder="Password" required>
@@ -127,6 +150,19 @@ $(document).ready(function() {
             $('#emailGroup').show();
 
         }
+    })
+
+    $(function() {
+        var requiredCheckboxes = $('.checkKelas :checkbox[required]');
+        requiredCheckboxes.on('change', function() {
+            if (requiredCheckboxes.is(':checked')) {
+                requiredCheckboxes.prop('required', false);
+                alert('checkbox checked');
+            } else {
+                requiredCheckboxes.prop('required', true);
+                alert('no checkbox checked');
+            }
+        })
     })
 })
 </script>
