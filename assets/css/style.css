@@ -41,3 +41,40 @@ body {
 .text-center {
   text-align: center;
 }
+
+main {
+  display: flex;
+  flex-wrap: nowrap;
+  height: 100vh;
+  /* height: -webkit-fill-available; */
+  max-height: 100vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 24px;
+}
+
+.brand-icon .logo-icon {
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  min-height: 60px;
+  border-radius: 50%;
+  background-color: white;
+  margin: inherit;
+  line-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modul {
+  transition: box-shadow 0.3s;
+}
+
+.modul:hover {
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.disabled-link {
+  pointer-events: none;
+}

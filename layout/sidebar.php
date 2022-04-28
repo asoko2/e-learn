@@ -12,50 +12,26 @@
         </a>
         <!-- Menu: main ul -->
         <ul class="menu-list flex-grow-1 mt-3">
-            <li><a class="m-link active" href="index.html"><i class="icofont-ui-home"></i><span>Dashboard</span></a>
+            <li><a class="m-link active" href="index.php"><i class="icofont-ui-home"></i><span>Dashboard</span></a>
             </li>
-            <li><a class="m-link" href="classes.html"><i class="icofont-read-book-alt"></i> <span>Classes</span></a>
-            </li>
+
             <?php if ($_SESSION['level_user'] == 1 || $_SESSION['level_user'] == 2) { ?>
 
-            <li><a class="m-link" href="students.html"><i class="icofont-group-students"></i> <span>Students</span></a>
-                <?php } ?>
+            <li><a class="m-link" href="murid.php"><i class="icofont-group-students"></i> <span>Murid</span></a>
             </li>
-
-            <?php if ($_SESSION['level_user'] == 1) { ?>
-            <li class="collapsed"><a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Teachers"
-                    href="#"><i class="icofont-teacher"></i><span>Teachers</span><span
-                        class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
-                <ul class="sub-menu collapse" id="menu-Teachers">
-                    <li><a class="ms-link" href="all-teachers.html"><span>Teachers</span></a></li>
-                    <li><a class="ms-link" href="teachers-info.html"><span>Teachers Profile</span></a></li>
-                </ul>
+            <li><a class="m-link" href="topik.php"><i class="icofont-certificate"></i> <span>Materi</span></a>
             </li>
             <?php } ?>
-            <li class="collapsed"><a class="m-link" data-bs-toggle="collapse" data-bs-target="#corses-Components"
-                    href="#"><i class="icofont-certificate"></i> <span>Materi</span><span
-                        class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
-                <!-- <ul class="sub-menu collapse" id="corses-Components">
-                    <li><a class="ms-link" href="courses.html"><span>Courses</span></a></li>
-                    <li><a class="ms-link" href="purchase.html"><span>Course Purchase</span></a></li>
-                </ul> -->
+
+            <?php if ($_SESSION['level_user'] == 1) { ?>
+            <li><a class="m-link" href="kelas.php"><i class="icofont-read-book-alt"></i> <span>Kelas</span></a>
             </li>
-            <!-- <li><a class="m-link" href="chat.html"><i class="icofont-ui-text-chat"></i> <span>Massages</span></a></li>
-            <li><a class="m-link" href="reviews.html"><i class="icofont-match-review"></i> <span>Reviews</span></a></li>
-            <li><a class="m-link" href="file-storage/index.html"><i class="icofont-cloud-upload"></i> <span>File
-                        Cloud</span></a></li> -->
-            <!-- <li><a class="m-link" href="ui-elements/ui-alerts.html"><i class="icofont-paint"></i> <span>UI
-                        Components</span></a></li> -->
+            <li><a class="m-link" href="guru.php"><i class="icofont-teacher"></i> <span>Guru</span></a></li>
+            <?php } ?>
+            <?php if ($_SESSION['level_user'] == 3) { ?>
+            <li><a class="m-link" href="modul.php"><i class="icofont-certificate"></i> <span>Modul</span></a></li>
+            <?php } ?>
         </ul>
-        <!-- Theme: Switch Theme -->
-        <!-- <ul class="list-unstyled mb-0">
-            <li class="d-flex align-items-center justify-content-center">
-                <div class="form-check form-switch theme-switch">
-                    <input class="form-check-input" type="checkbox" id="theme-switch">
-                    <label class="form-check-label" for="theme-switch">Enable Dark Mode!</label>
-                </div>
-            </li>
-        </ul> -->
         <!-- Menu: menu collepce btn -->
         <button type="button" class="btn btn-link sidebar-mini-btn text-light">
             <span class="ms-2"><i class="icofont-bubble-right"></i></span>

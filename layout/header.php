@@ -14,14 +14,15 @@
                     </div>
                     <a class="nav-link dropdown-toggle pulse p-0" href="#" role="button" data-bs-toggle="dropdown"
                         data-bs-display="static">
-                        <img class="avatar lg rounded-circle img-thumbnail" src="assets/images/profile_av.png"
+                        <img class="avatar lg rounded-circle img-thumbnail" src="../assets/images/profile_av.png"
                             alt="profile">
                     </a>
                     <div class="dropdown-menu rounded-lg shadow border-0 dropdown-animation dropdown-menu-end p-0 m-0">
                         <div class="card border-0 w280">
                             <div class="card-body pb-0">
                                 <div class="d-flex py-1">
-                                    <img class="avatar rounded-circle" src="assets/images/profile_av.png" alt="profile">
+                                    <img class="avatar rounded-circle" src="../assets/images/profile_av.png"
+                                        alt="profile">
                                     <div class="flex-fill ms-3">
                                         <p class="mb-0"><span
                                                 class="font-weight-bold"><?php echo $_SESSION['name'] ?></span>
@@ -34,14 +35,14 @@
                                 </div>
                             </div>
                             <div class="list-group m-2 ">
-                                <a href="students.html" class="list-group-item list-group-item-action border-0 "><i
+                                <!-- <a href="students.html" class="list-group-item list-group-item-action border-0 "><i
                                         class="icofont-graduate-alt fs-6 me-3"></i>Student Profile</a>
                                 <a href="video-class.html" class="list-group-item list-group-item-action border-0 "><i
-                                        class="icofont-black-board fs-6 me-3"></i>Video Class</a>
+                                        class="icofont-black-board fs-6 me-3"></i>Video Class</a> -->
                                 <div>
-                                    <hr class="dropdown-divider border-dark">
+                                    <!-- <hr class="dropdown-divider border-dark"> -->
                                 </div>
-                                <a href="sign-out.php" class="list-group-item list-group-item-action border-0 "><i
+                                <a href="../sign-out.php" class="list-group-item list-group-item-action border-0 "><i
                                         class="icofont-logout fs-6 me-3"></i>Signout</a>
                             </div>
                         </div>
