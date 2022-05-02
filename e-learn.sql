@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 28, 2022 at 03:15 PM
+-- Generation Time: May 02, 2022 at 03:20 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.6
 
@@ -1126,7 +1126,9 @@ CREATE TABLE `survey_result` (
 --
 
 INSERT INTO `survey_result` (`id`, `level_result`, `student_id`) VALUES
-(1, 2, 11);
+(1, 2, 11),
+(2, 1, 1),
+(3, 2, 3);
 
 -- --------------------------------------------------------
 
@@ -1543,7 +1545,7 @@ ALTER TABLE `survey_question`
 -- AUTO_INCREMENT for table `survey_result`
 --
 ALTER TABLE `survey_result`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `teachers`
