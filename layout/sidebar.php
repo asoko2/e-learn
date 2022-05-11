@@ -21,12 +21,15 @@
             </li>
             <li><a class="m-link" href="topik.php"><i class="icofont-certificate"></i> <span>Materi</span></a>
             </li>
-            <?php } ?>
+            <li><a class="m-link" href="hasil-survey.php"><i class="icofont-law-document"></i><span>Hasil
+                        Survey</span></a>
+                <?php } ?>
 
-            <?php if ($_SESSION['level_user'] == 1) { ?>
+                <?php if ($_SESSION['level_user'] == 1) { ?>
             <li><a class="m-link" href="kelas.php"><i class="icofont-read-book-alt"></i> <span>Kelas</span></a>
             </li>
             <li><a class="m-link" href="guru.php"><i class="icofont-teacher"></i> <span>Guru</span></a></li>
+            </li>
             <?php } ?>
             <?php if ($_SESSION['level_user'] == 3) { ?>
             <li><a class="m-link" href="modul.php"><i class="icofont-certificate"></i> <span>Modul</span></a></li>

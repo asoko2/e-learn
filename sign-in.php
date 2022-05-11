@@ -30,6 +30,10 @@ if (isset($_SESSION['name'])) {
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             <?php } ?>
+            <select class="form-select form-select-lg" name="matpel" required>
+                <option selected>--Pilih Mata Pelajaran--</option>
+                <option value="1">Biologi</option>
+            </select>
             <div class="form-floating">
                 <input type="text" class="form-control" id="floatingInput" name="login" placeholder="name@example.com">
                 <label for="floatingInput">Login/Email/NIS/NIP</label>
@@ -39,6 +43,7 @@ if (isset($_SESSION['name'])) {
                     placeholder="Password">
                 <label for="floatingPassword">Password</label>
             </div>
+
 
             <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
             <hr />
